@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Component/Home";
 import Header from "./Component/Header";
 import Viewproduct from "./Component/Viewproduct";
-import { Navigate } from "react-router-dom";
+
 
 function App() {
   

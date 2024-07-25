@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useNavigate } from "react-router-dom";
 
+
 const Home = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -25,8 +26,8 @@ const Home = () => {
 
   return (
     <>
-      <h3>Social Media For Travellers</h3>
-      <div className="input-group flex-nowrap">
+      <h3><b>Social Media For Travellers</b></h3>
+      <div className="input-group">
         <span className="input-group-text" id="addon-wrapping">
           <SearchIcon />
         </span>
@@ -42,7 +43,6 @@ const Home = () => {
         ></input>
       </div>
       <div className="cards">
-        {console.log(user)}
         {user.loading && <p>Loading...</p>}
         {!user.loading && <p>{user.error}</p>}
         {!user.loading && user.users && user.users.length ? (
@@ -52,20 +52,18 @@ const Home = () => {
                 item.title.toLowerCase().includes(reqSearch.toLowerCase())
               )
               .map((person) => (
-                <div className="eachcard" key={person.id}>
-                  <div
-                    onClick={() => {
-                      navigate(`/viewproduct/${person.id}`);
-                    }}
-                  >
-                    <Card sx={{ width: 345, height: 345 }}>
+                <div className="eachcard" key={person.id} onClick={() => {
+                  navigate(`/viewproduct/${person.id}`);
+                }}>
+                  
+                    <Card sx={{ width: 320, height: 345 }}>
                       <CardMedia
                         sx={{ width: 345, height: 140 }}
                         image={`https://picsum.photos/200?random=${person.id}`}
                         title="green iguana"
                       />
                       <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h5">
                           {person.title.length > 25
                             ? person.title.substring(0, 25)
                             : person.title}
@@ -76,7 +74,6 @@ const Home = () => {
                         >
                           <div>
                             <Typography
-                              className="abouttxt"
                               variant="body2"
                               color="text.secondary"
                             >
@@ -85,10 +82,7 @@ const Home = () => {
                                 : person.body}
                               <span>
                                 <Button
-                                  size="small"
-                                  onClick={() => {
-                                    navigate(`/viewproduct/${person.id}`);
-                                  }}
+                                  size="small" 
                                 >
                                   Read More
                                 </Button>
@@ -102,9 +96,7 @@ const Home = () => {
                                   backgroundColor: "orange",
                                   color: "white",
                                 }}
-                                onClick={() => {
-                                  navigate(`/viewproduct/${person.id}`);
-                                }}
+                                
                               >
                                 <NavigateNextIcon
                                   fontSize="large"
@@ -116,7 +108,7 @@ const Home = () => {
                         </div>
                       </CardContent>
                     </Card>
-                  </div>
+                  
                 </div>
               ))}
           </>

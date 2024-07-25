@@ -25,16 +25,14 @@ const Viewproduct = () => {
   return (
     <>
       <div className="clickedprod">
-        <Button style={{ marginLeft: "-1%" }} onClick={()=>{
+        <Button style={{ marginLeft: "-1%"}} onClick={()=>{
             navigate("/");
         }} >
           {" "}
           <ArrowBackIcon fontSize="large" className="arrow" style={{backgroundColor:"white",color:"black", borderRadius:"40px",boxShadow: "2px 2px 20px 0px #8E8481"}} />
         </Button>
-        <Typography className="name" gutterBottom variant="h4">
-          {person.title.length > 25
-            ? person.title.substring(0, 25)
-            : person.title}
+        <Typography style={{marginTop:"1%"}}className="name" gutterBottom variant="h4">
+          Post Number
           {id}
         </Typography>
       </div>
@@ -43,9 +41,9 @@ const Viewproduct = () => {
         style={{ marginBottom: "1%", marginLeft: "2%",gap:"2%", display:"flex" }}
         key={person.id}
       >
-        <Card sx={{ width: 400, height: 230 }}>
+        <Card sx={{ width: 345, height: 230 }}>
           <CardMedia
-            sx={{ height: 230, width:400 }}
+            sx={{ height: 230, width:345 }}
             image={`https://picsum.photos/200?random=${person.id}`}
             title="green iguana"
           />
@@ -69,7 +67,8 @@ const Viewproduct = () => {
         </span>
       </div>
       <div className="cards">
-        
+       <h2 style={{marginLeft:"-85%"}}><b>More Posts</b></h2>
+        <div>
         {user
           .filter((persons) => persons.userId === userId && persons.id!=id)
           .map((person) => (
@@ -79,7 +78,7 @@ const Viewproduct = () => {
                             
                           }}>
               
-              <Card sx={{ width: 300, height: 345 }}>
+              <Card sx={{ width: 320, height: 345 }}>
                 <CardMedia
                   sx={{  width:345, height: 140}}
                   image={`https://picsum.photos/200?random=${person.id}`}
@@ -101,10 +100,7 @@ const Viewproduct = () => {
                       <span>
                         <Button
                           size="small"
-                          onClick={() => {
-                            navigate(`/viewproduct/${person.id}`)
-                            
-                          }}
+                          
                         >
 
                           Read More
@@ -116,10 +112,7 @@ const Viewproduct = () => {
 
                     
                       <CardActions className="openbtn">
-                        <Button style={{ backgroundColor: 'orange', color: 'white' }} onClick={() => {
-                            navigate(`/viewproduct/${person.id}`)
-                            
-                          }}>
+                        <Button style={{ backgroundColor: 'orange', color: 'white' }} >
                           <NavigateNextIcon
                             fontSize="large"
                             variant="contained"
@@ -135,6 +128,7 @@ const Viewproduct = () => {
               </div>
             </div>
           ))}
+          </div>
       </div>
     </>
   );

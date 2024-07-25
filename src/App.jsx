@@ -13,9 +13,9 @@ function App() {
       <BrowserRouter>
       <Header />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/viewproduct/" element={<Viewproduct/>}></Route>
-          <Route path="/viewproduct/:id" element={<Viewproduct />}></Route>
+          <Route path="/" element={<Home />}/>
+          <Route path="/viewproduct/" element={<Viewproduct/>}/>
+          <Route path="/viewproduct/:id" element={<Viewproduct />}/>
         </Routes>
       </BrowserRouter>
     </>

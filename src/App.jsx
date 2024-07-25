@@ -1,0 +1,25 @@
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Component/Home";
+import Header from "./Component/Header";
+import Viewproduct from "./Component/Viewproduct";
+import { Navigate } from "react-router-dom";
+
+function App() {
+  
+  return (
+    <>
+     
+      <BrowserRouter>
+      <Header />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/viewproduct/" element={<Viewproduct/>}></Route>
+          <Route path="/viewproduct/:id" element={<Viewproduct />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;

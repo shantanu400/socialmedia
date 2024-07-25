@@ -1,0 +1,36 @@
+#headhome {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 20vh;
+  background-color: #f05a22;
+  box-shadow: 3px 15px 20px 0px #ffbe9dc7;
+}
+
+#header {
+  position: absolute;
+  width: 20vw;
+  height: 10vh;
+  margin: 2%;
+  color: #ffffff;
+}
+
+#headmenu {
+  position: absolute;
+  width: 50vw;
+  height: 7vh;
+  margin: 2%;
+  padding: 1%;
+  left: 20%;
+  border-radius: 2vw;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 5vw;
+  background: #ffffff;
+  align-items: center;
+}
+/* .menu {
+  left: 25%;
+  box-shadow: 3px 5px 12px 0px #ffbe9dc7;
+} */

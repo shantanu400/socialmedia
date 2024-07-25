@@ -1,0 +1,25 @@
+
+.clickedprod {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 2%;
+  }
+body{
+    background-color:#fae2e2;
+}
+.arrow, .name {
+    position: static;
+    
+  }
+.cards{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+     
+}
+.eachcard{
+    margin: 1.5%;
+}
+

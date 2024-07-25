@@ -74,7 +74,7 @@ const Viewproduct = () => {
           .filter((persons) => persons.userId === userId && persons.id!=id)
           .map((person) => (
             <div className="eachcard" key={person.id}>
-                <Button style={{margin:"0%",padding:"0%"}} onClick={() => {
+                <div style={{margin:"0%",padding:"0%"}} onClick={() => {
                             navigate(`/viewproduct/${person.id}`)
                             
                           }}>
@@ -132,7 +132,7 @@ const Viewproduct = () => {
                   </div>
                 </CardContent>
               </Card>
-              </Button>
+              </div>
             </div>
           ))}
       </div>

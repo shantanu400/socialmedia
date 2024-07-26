@@ -11,9 +11,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useNavigate } from "react-router-dom";
-import HM from "./style/Home.module.css"
-
-
+import HM from "./style/Home.module.css";
 
 const Home = () => {
   const user = useSelector((state) => state.user);
@@ -27,8 +25,10 @@ const Home = () => {
 
   return (
     <>
-      <h3><b>Social Media For Travellers</b></h3>
-      <div className="input-group" >
+      <h3>
+        <b>Social Media For Travellers</b>
+      </h3>
+      <div className="input-group">
         <span className="input-group-text" id="addon-wrapping">
           <SearchIcon />
         </span>
@@ -53,63 +53,56 @@ const Home = () => {
                 item.title.toLowerCase().includes(reqSearch.toLowerCase())
               )
               .map((person) => (
-                <div className={HM.eachcard} key={person.id} onClick={() => {
-                  navigate(`/viewproduct/${person.id}`);
-                }}>
-                  
-                    <Card sx={{ width: 320, height: 345 }}>
-                      <CardMedia
-                        sx={{ width: 345, height: 140 }}
-                        image={`https://picsum.photos/200?random=${person.id}`}
-                        title="green iguana"
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5">
-                          {person.title.length > 25
-                            ? person.title.substring(0, 25)
-                            : person.title}
-                        </Typography>
-                        <div
-                          
-                          style={{ display: "flex", justifyContent: "centre" }}
-                        >
-                          <div>
-                            <Typography
-                              variant="body2"
-                              color="text.secondary"
-                            >
-                              {person.body.length > 90
-                                ? person.body.substring(0, 90) + "..."
-                                : person.body}
-                              <span>
-                                <Button
-                                  size="small" 
-                                >
-                                  Read More
-                                </Button>
-                              </span>
-                            </Typography>
-                          </div>
-                          <span>
-                            <CardActions >
-                              <Button
-                                style={{
-                                  backgroundColor: "orange",
-                                  color: "white",
-                                }}
-                                
-                              >
-                                <NavigateNextIcon
-                                  fontSize="large"
-                                  variant="contained"
-                                />
-                              </Button>
-                            </CardActions>
-                          </span>
+                <div
+                  className={HM.eachcard}
+                  key={person.id}
+                  onClick={() => {
+                    navigate(`/viewproduct/${person.id}`);
+                  }}
+                >
+                  <Card sx={{ width: 320, height: 345 }}>
+                    <CardMedia
+                      sx={{ width: 345, height: 140 }}
+                      image={`https://picsum.photos/200?random=${person.id}`}
+                      title="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5">
+                        {person.title.length > 25
+                          ? person.title.substring(0, 25)
+                          : person.title}
+                      </Typography>
+                      <div
+                        style={{ display: "flex", justifyContent: "centre" }}
+                      >
+                        <div>
+                          <Typography variant="body2" color="text.secondary">
+                            {person.body.length > 90
+                              ? person.body.substring(0, 90) + "..."
+                              : person.body}
+                            <span>
+                              <Button size="small">Read More</Button>
+                            </span>
+                          </Typography>
                         </div>
-                      </CardContent>
-                    </Card>
-                  
+                        <span>
+                          <CardActions>
+                            <Button
+                              style={{
+                                backgroundColor: "orange",
+                                color: "white",
+                              }}
+                            >
+                              <NavigateNextIcon
+                                fontSize="large"
+                                variant="contained"
+                              />
+                            </Button>
+                          </CardActions>
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
               ))}
           </>

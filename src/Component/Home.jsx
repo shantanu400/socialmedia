@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUsers } from "../Slice/userSlice.jsx";
 import "bootstrap/dist/css/bootstrap.css";
-import "./style/Home.css";
 import SearchIcon from "@mui/icons-material/Search";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -12,6 +11,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useNavigate } from "react-router-dom";
+import HM from "./style/Home.module.css"
+
 
 
 const Home = () => {
@@ -27,7 +28,7 @@ const Home = () => {
   return (
     <>
       <h3><b>Social Media For Travellers</b></h3>
-      <div className="input-group">
+      <div className="input-group" >
         <span className="input-group-text" id="addon-wrapping">
           <SearchIcon />
         </span>
@@ -42,7 +43,7 @@ const Home = () => {
           }}
         ></input>
       </div>
-      <div className="cards">
+      <div className={HM.cards}>
         {user.loading && <p>Loading...</p>}
         {!user.loading && <p>{user.error}</p>}
         {!user.loading && user.users && user.users.length ? (
@@ -52,7 +53,7 @@ const Home = () => {
                 item.title.toLowerCase().includes(reqSearch.toLowerCase())
               )
               .map((person) => (
-                <div className="eachcard" key={person.id} onClick={() => {
+                <div className={HM.eachcard} key={person.id} onClick={() => {
                   navigate(`/viewproduct/${person.id}`);
                 }}>
                   
@@ -69,7 +70,7 @@ const Home = () => {
                             : person.title}
                         </Typography>
                         <div
-                          className="details"
+                          
                           style={{ display: "flex", justifyContent: "centre" }}
                         >
                           <div>
@@ -90,7 +91,7 @@ const Home = () => {
                             </Typography>
                           </div>
                           <span>
-                            <CardActions className="openbtn">
+                            <CardActions >
                               <Button
                                 style={{
                                   backgroundColor: "orange",

@@ -1,19 +1,19 @@
 import React from "react";
-import "./style/Header.css";
 import HomeIcon from "@mui/icons-material/Home";
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import HD from "./style/Header.module.css"
 
 
 const Header = () => {
   const navigate=useNavigate();
   return (
-    <div id="headhome">
-      <h2 id="header">TravelMedia.in</h2>
-      <div id="headmenu">
+    <div className={HD.headhome}>
+      <h2 className={HD.header}>TravelMedia.in</h2>
+      <div className={HD.headmenu}>
        
           <Button onClick={()=>{
 navigate("/")

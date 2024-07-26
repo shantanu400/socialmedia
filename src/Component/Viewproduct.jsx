@@ -1,9 +1,7 @@
 import React,{useState} from "react";
-import "./style/Viewproduct.css";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
-import "./style/Home.css";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -13,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useNavigate } from "react-router-dom";
+import VP from "./style/Viewproduct.module.css"
 
 const Viewproduct = () => {
   const user = useSelector((state) => state.user.users);
@@ -24,18 +23,16 @@ const Viewproduct = () => {
 
   return (
     <>
-      <div className="clickedprod">
-        <Button style={{ marginLeft: "-1%"}} onClick={()=>{
-            navigate("/");
-        }} >
-          {" "}
-          <ArrowBackIcon fontSize="large" className="arrow" style={{backgroundColor:"white",color:"black", borderRadius:"40px",boxShadow: "2px 2px 20px 0px #8E8481"}} />
-        </Button>
-        <Typography style={{marginTop:"1%"}}className="name" gutterBottom variant="h4">
-          Post Number
-          {id}
-        </Typography>
-      </div>
+     <div className={VP.clickedprod} style={{display: 'flex', alignItems: 'center'}}>
+    <ArrowBackIcon fontSize="large"  style={{backgroundColor:"white",color:"black", borderRadius:"40px",boxShadow: "2px 2px 20px 0px #8E8481", margin:"2%"}} onClick={()=>{
+        navigate("/");
+    }}/>
+  
+    <Typography style={{marginTop:"1%"}} gutterBottom variant="h4">
+      Post Number
+      {id}
+    </Typography>
+</div>
 
       <div
         style={{ marginBottom: "1%", marginLeft: "2%",gap:"2%", display:"flex" }}
@@ -66,13 +63,14 @@ const Viewproduct = () => {
         </Typography>
         </span>
       </div>
-      <div className="cards">
+      <div className={VP.cards}
+      >
        <h2 style={{marginLeft:"-85%"}}><b>More Posts</b></h2>
         <div>
         {user
           .filter((persons) => persons.userId === userId && persons.id!=id)
           .map((person) => (
-            <div className="eachcard" key={person.id}>
+            <div className={VP.eachcard} key={person.id}>
                 <div style={{margin:"0%",padding:"0%"}} onClick={() => {
                             navigate(`/viewproduct/${person.id}`)
                             
@@ -91,9 +89,9 @@ const Viewproduct = () => {
                       : person.title}
                     
                   </Typography>
-                  <div className="details" style={{display:"flex",justifyContent:"centre"}}>
+                  <div  style={{display:"flex",justifyContent:"centre"}}>
                     <div>
-                    <Typography className="abouttxt" variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary">
                       {person.body.length > 70
                         ? person.body.substring(0, 70) + "..."
                         : person.body}
@@ -111,7 +109,7 @@ const Viewproduct = () => {
                     <span>
 
                     
-                      <CardActions className="openbtn">
+                      <CardActions >
                         <Button style={{ backgroundColor: 'orange', color: 'white' }} >
                           <NavigateNextIcon
                             fontSize="large"

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUsers } from "../Slice/userSlice.jsx";
+import { setchangeId } from "../Slice/userSlice.jsx";
 import "bootstrap/dist/css/bootstrap.css";
 import SearchIcon from "@mui/icons-material/Search";
 import Card from "@mui/material/Card";
@@ -20,6 +21,8 @@ const Home = () => {
 
   const navigate = useNavigate();
   useEffect(() => {
+    console.log(user.userInfo);
+    console.log(user);
     dispatch(fetchUsers());
   }, []);
 
@@ -57,6 +60,7 @@ const Home = () => {
                   className={HM.eachcard}
                   key={person.id}
                   onClick={() => {
+                    dispatch(setchangeId(true));
                     navigate(`/viewproduct/${person.id}`);
                   }}
                 >

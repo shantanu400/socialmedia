@@ -14,6 +14,46 @@ body {
   box-sizing: border-box;
   margin-right: 4%;
 }
+.btnsinfo{
+    margin: 10%;
+}
+.insideprodicon{
+    position: relative;
+    height: 50vh;
+    width: 90vh;
+    border-radius: 40px;
+    background-color: red;
+    
+}
+
+.post{
+    position: absolute;
+    bottom: 0%;
+    font-weight: 600;
+    font-size: 2vw;
+    left: 7%;
+    color: rgb(248, 248, 248);
+}
+.heart{
+    position: absolute;
+    bottom: 1%;
+    font-weight: 600;
+    font-size: 2vw;
+    left: 70%;
+    color: rgb(248, 248, 248);
+
+}
+.share{
+    position: absolute;
+    bottom: 1%;
+    font-weight: 600;
+    font-size: 2vw;
+    left: 55%;
+    color: rgb(248, 248, 248);
+}
+.share:hover,.heart:hover {
+    box-shadow: 0 12px 16px 0 rgba(10, 214, 10, 0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
 
 .eachcard {
   display: inline-block !important;

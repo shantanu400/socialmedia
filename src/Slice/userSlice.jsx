@@ -1,10 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+
 const initialState = {
   loading: false,
   users: [],
   error: "",
+  userInfo: false,
+  changeId:false,
 };
+
 export const fetchUsers = createAsyncThunk("user/fetchUsers", () => {
   return axios
     .get("https://jsonplaceholder.typicode.com/posts")
@@ -13,6 +17,8 @@ export const fetchUsers = createAsyncThunk("user/fetchUsers", () => {
 
 export const userSlice = createSlice({
   name: "user",
+  
+  
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.pending, (state) => {
@@ -29,5 +35,14 @@ export const userSlice = createSlice({
       state.error = action.error.message;
     });
   },
+  reducers:{
+    setuserInfo:(state,action)=>{
+      state.userInfo=action.payload;
+    },
+    setchangeId:(state,action)=>{
+      state.changeId=action.payload;
+    }
+  }
 });
+export const {setuserInfo,setchangeId}=userSlice.actions;
 export default userSlice.reducer;

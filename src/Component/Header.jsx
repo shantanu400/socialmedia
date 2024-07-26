@@ -6,8 +6,10 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import HD from "./style/Header.module.css";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const {changeId}=useSelector((state)=>state.user)
   const navigate = useNavigate();
   return (
     <div className={HD.headhome}>
@@ -18,6 +20,7 @@ const Header = () => {
             navigate("/");
           }}
         >
+          
           <HomeIcon style={{ color: "#F9DDCF" }} />
         </Button>
         <Button>

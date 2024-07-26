@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.css";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -12,14 +12,19 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useNavigate } from "react-router-dom";
 import VP from "./style/Viewproduct.module.css";
+import { setuserInfo,setchangeId } from "../Slice/userSlice";
+import { CiHeart } from "react-icons/ci";
+import { CiShare2 } from "react-icons/ci";
 
 const Viewproduct = () => {
   const user = useSelector((state) => state.user.users);
+  const userInfo=useSelector((state)=>state.user.userInfo);
+  const dispatch=useDispatch();
   const { id } = useParams();
-  const person = user.find((person) => person.id === Number(id));
-  const userId = person.userId;
+  console.log(user.userInfo);
+  const person = user.find((eachperson) => eachperson.id === Number(id));
+  const userId=person.userId;
   const navigate = useNavigate();
-  const [userinfo, setUserinfo] = useState(false);
 
   return (
     <>
@@ -49,6 +54,7 @@ const Viewproduct = () => {
 
       <div
         style={{
+          
           marginBottom: "1%",
           marginLeft: "2%",
           gap: "2%",
@@ -56,13 +62,19 @@ const Viewproduct = () => {
         }}
         key={person.id}
       >
-        <Card sx={{ width: 345, height: 230 }}>
-          <CardMedia
-            sx={{ height: 230, width: 345 }}
-            image={`https://picsum.photos/200?random=${person.id}`}
-            title="green iguana"
-          />
-        </Card>
+       
+          
+          
+          <div className={VP.insideprodicon} style={{backgroundImage:`url(https://picsum.photos/200?random=${person.id})`,backgroundRepeat:"no-repeat",backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        }} >
+            <div className={VP.post}>Post Number</div>
+            <div className={VP.heart}><CiHeart /> </div>
+            <div className={VP.share}><CiShare2 /></div>
+
+          </div>
+        
         <span>
           <div>
             <Button
@@ -75,11 +87,11 @@ const Viewproduct = () => {
                 marginTop: "0%",
                 boxShadow: "2px 2px 20px 0px #F9C5B9",
               }}
-              onClick={() => setUserinfo(false)}
+              onClick={() =>dispatch(setuserInfo(false))}
             >
               Details
             </Button>
-            <span>
+            
               <Button
                 variant="contained"
                 style={{
@@ -89,14 +101,14 @@ const Viewproduct = () => {
                   marginTop: "-3%",
                   boxShadow: "2px 2px 20px 0px #E0E0E0",
                 }}
-                onClick={() => setUserinfo(true)}
+                onClick={() =>dispatch(setuserInfo(true))}
               >
                 User Info
               </Button>
-            </span>
+            
           </div>
-          <Typography variant="body2" color="text.secondary">
-            {userinfo && (
+          <Typography  color="text.secondary">
+            {userInfo && (
               <div>
                 <p>
                   <b>UserId:</b> {person.userId}
@@ -109,7 +121,7 @@ const Viewproduct = () => {
                 </p>
               </div>
             )}
-            {!userinfo && person.body}
+            {!userInfo && person.body}
           </Typography>
         </span>
       </div>
@@ -125,6 +137,7 @@ const Viewproduct = () => {
                 <div
                   style={{ margin: "0%", padding: "0%" }}
                   onClick={() => {
+                    dispatch(setchangeId(true));
                     navigate(`/viewproduct/${person.id}`);
                   }}
                 >

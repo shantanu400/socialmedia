@@ -14,44 +14,86 @@ body {
   box-sizing: border-box;
   margin-right: 4%;
 }
-.btnsinfo{
-    margin: 10%;
+.detailsubtn{
+  position: absolute;
+  top:40%;
+  left: 40%;
+  display: flex;
+  gap:3vw;
+  margin-left:2vw;
+  border-color: white;
+  align-items: center;
+}
+.detailsuserbody{
+  position:absolute;
+  top:50%;
+  left:40%;
+
+}
+.detailsbtn, .userbtn{
+
+
+  border-radius: 7px;
+  width: 74px;
+  height: 27px;
+ 
+ 
+  padding-left: 10px;
+
+
+
+}
+.userbtn{
+
+  padding-left: 18px;
 }
 .insideprodicon{
+    position: relative;   
+    width:35vw;
+    height:60vh;
+    border-radius: 30px;
+    margin:1vw;
+    background-color: 
+    #C4C4C4;
     position: relative;
-    height: 50vh;
-    width: 90vh;
-    border-radius: 40px;
-    background-color: red;
+    color:white;
+    
     
 }
 
 .post{
     position: absolute;
     bottom: 0%;
-    font-weight: 600;
+    
     font-size: 2vw;
-    left: 7%;
+    
     color: rgb(248, 248, 248);
-}
-.heart{
     position: absolute;
-    bottom: 1%;
+    
+    left:10%;
+    right:30%;
+ 
     font-weight: 600;
-    font-size: 2vw;
-    left: 70%;
+}
+.handle{
+  display: flex;
+
+
+}
+.logo{
+    
+    position:absolute;
+    right:-29%;
+    bottom: -16%;
+    font-weight: 500;
+    gap: 1vw;
+   
+    margin:1vw;
     color: rgb(248, 248, 248);
 
 }
-.share{
-    position: absolute;
-    bottom: 1%;
-    font-weight: 600;
-    font-size: 2vw;
-    left: 55%;
-    color: rgb(248, 248, 248);
-}
-.share:hover,.heart:hover {
+
+.logo:hover{
     box-shadow: 0 12px 16px 0 rgba(10, 214, 10, 0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
